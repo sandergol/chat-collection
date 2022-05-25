@@ -1,0 +1,131 @@
+@charset "UTF-8";
+.chat-collection {
+  display: flex;
+  position: fixed;
+  height: auto;
+  min-height: 74px;
+  width: 74px;
+  right: 15px;
+  bottom: 15px;
+  z-index: 2;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 37px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  transition: all 0.2s linear;
+  overflow: hidden;
+}
+.chat-collection:not(.open):hover {
+  transform: scale(1.18);
+}
+.chat-collection.cart {
+  bottom: 100px;
+}
+.chat-collection__content {
+  position: relative;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.2s linear;
+}
+.chat-collection__link {
+  display: flex;
+  position: relative;
+  height: 54px;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  transition: all 0.2s linear;
+  margin: 10px 0;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.chat-collection__link a {
+  height: 50px;
+  width: auto;
+  transition: all 0.2s linear;
+}
+.chat-collection__link svg {
+  height: 50px;
+  width: auto;
+}
+.chat-collection__footer {
+  height: 74px;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.chat-collection__footer .open {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.chat-collection__footer .open svg {
+  height: 30px;
+}
+.chat-collection__footer .close {
+  display: none;
+  height: 100%;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.chat-collection__footer .close svg {
+  height: 16px;
+  opacity: 0.6;
+}
+
+.chat-collection.open .chat-collection__content__link:hover {
+  background-color: rgba(40, 60, 250, 0.05);
+}
+.chat-collection.open .chat-collection__content__link:hover a {
+  transform: scale(1.1);
+}
+.chat-collection.open .chat-collection__footer .open {
+  display: none;
+}
+.chat-collection.open .chat-collection__footer .close {
+  display: flex !important;
+}
+.chat-collection.open .chat-collection__footer .close svg {
+  opacity: 1;
+}
+
+#vk__messages:not(.shown-0) {
+  position: relative !important;
+  height: 50px !important;
+  width: auto !important;
+  right: 0 !important;
+  margin: 0 !important;
+}
+#vk__messages:not(.shown-0):not([style*="background: none"]) {
+  /* Когда нет - виджет не показывается */
+  display: none !important;
+}
+#vk__messages:not(.shown-0):not([style*="background: none"]) + a {
+  /* Если чат не отобразился - отображаем ссылку */
+  display: block !important;
+}
+#vk__messages:not(.shown-0) iframe {
+  height: 50px;
+  width: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */

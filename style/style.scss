@@ -1,0 +1,165 @@
+$buttonHeight: 54px;
+$svgHeightИBig: 74px;
+$svgHeightLarge: 50px;
+$svgHeightMedium: 30px;
+$svgHeightSmall: 16px;
+$svgWidth: auto;
+
+.chat-collection {
+  display: flex;
+  position: fixed;
+  height: auto;
+  min-height: $svgHeightИBig;
+  width: $svgHeightИBig;
+  right: 15px;
+  bottom: 15px;
+  z-index: 2;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 37px;
+  box-shadow: 0 5px 25px rgb(0 0 0 / 15%);
+  background-color: #fff;
+  transition: all 0.2s linear;
+  overflow: hidden;
+
+  &:not(.open):hover {
+    transform: scale(1.18);
+  }
+
+  &.cart {
+    bottom: 100px;
+  }
+
+  &__content {
+    position: relative;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: all .2s linear;
+  }
+
+  &__link {
+    display: flex;
+    position: relative;
+    height: $buttonHeight;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    transition: all 0.2s linear;
+    margin: 10px 0;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    a {
+      height: $svgHeightLarge;
+      width: $svgWidth;
+      transition: all 0.2s linear;
+    }
+
+    svg {
+      height: $svgHeightLarge;
+      width: $svgWidth;
+    }
+  }
+
+  &__footer {
+    height: $svgHeightИBig;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    .open {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        height: $svgHeightMedium;
+      }
+    }
+
+    .close {
+      display: none;
+      height: 100%;
+      width: 100%;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        height: $svgHeightSmall;
+        opacity: .6;
+      }
+    }
+  }
+}
+
+.chat-collection.open {
+
+  .chat-collection__content {
+
+    &__link {
+
+      &:hover {
+        background-color: rgba(40, 60, 250, 0.05);
+
+        a {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .chat-collection__footer {
+
+    .open {
+      display: none;
+    }
+
+    .close {
+      display: flex !important;
+
+      svg {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#vk__messages:not(.shown-0) {
+  position: relative !important;
+  height: $svgHeightLarge !important;
+  width: auto !important;
+  right: 0 !important;
+  margin: 0 !important;
+
+  &:not([style*="background: none"]) {
+    /* Когда нет - виджет не показывается */
+    display: none !important;
+
+    + a {
+      /* Если чат не отобразился - отображаем ссылку */
+      display: block !important;
+    }
+  }
+
+  iframe {
+    height: $svgHeightLarge;
+    width: $svgHeightLarge;
+  }
+}
